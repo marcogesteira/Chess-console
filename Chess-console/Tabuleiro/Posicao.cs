@@ -7,7 +7,7 @@
 
         public Posicao(int linha, int coluna)
         {
-            this.Linha = Linha;
+            this.Linha = linha;
             this.Coluna = coluna;
         }
 

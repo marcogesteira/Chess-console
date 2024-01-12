@@ -1,5 +1,7 @@
 ﻿using System;
 using Tabuleiro;
+using Tabuleiro.Enums;
+using Xadrez;
 
 namespace Chess_console
 {
@@ -7,9 +9,14 @@ namespace Chess_console
     {
         static void Main(string[] args)
         {
-            Tabuleiro.Tabuleiro tabuleiro = new Tabuleiro.Tabuleiro(8, 8);
+            Tabuleiro.Tabuleiro tab = new Tabuleiro.Tabuleiro(8, 8);
 
-            Tela.imprimirTabuleiro(tabuleiro);
+            tab.ColocarPeca(new Torre(Cor.Preta, tab),new Posicao(0, 0));
+            tab.ColocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
+            tab.ColocarPeca(new Rei(Cor.Preta, tab) ,new Posicao(2, 4));
+
+
+            Tela.imprimirTabuleiro(tab);
         }
     }
 }
