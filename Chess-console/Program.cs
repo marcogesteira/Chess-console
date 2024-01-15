@@ -18,9 +18,13 @@ namespace Chess_console
                 tab.ColocarPeca(new Torre(Cor.Preta, tab), new Posicao(1, 3));
                 tab.ColocarPeca(new Rei(Cor.Preta, tab), new Posicao(2, 4));
 
-                PosicaoXadrez pos = new PosicaoXadrez('c', 7);
-                Console.WriteLine(pos);
-                Console.WriteLine(pos.ToPosicao());
+                tab.ColocarPeca(new Torre(Cor.Branca, tab), new Posicao(3, 5));
+                tab.ColocarPeca(new Torre(Cor.Branca, tab), new Posicao(4, 7));
+                tab.ColocarPeca(new Rei(Cor.Branca, tab), new Posicao(5, 5));
+
+                //PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+                //Console.WriteLine(pos);
+                //Console.WriteLine(pos.ToPosicao());
 
 
                 Tela.imprimirTabuleiro(tab);
