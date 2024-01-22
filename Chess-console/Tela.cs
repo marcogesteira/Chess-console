@@ -6,7 +6,7 @@ namespace Chess_console
 {
     internal class Tela
     {
-        
+
         public static void ImprimirPartida(PartidaDeXadrez partida)
         {
             Tela.imprimirTabuleiro(partida.Tab);
@@ -14,13 +14,21 @@ namespace Chess_console
             ImprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            if (partida.Xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vendecor: " + partida.JogadorAtual);
             }
         }
-        
+
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
         {
             Console.WriteLine("Peças capturadas: ");
@@ -50,7 +58,7 @@ namespace Chess_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Colunas; j++)
                 {
-                        ImprimirPeca(tab.Peca(i, j));
+                    ImprimirPeca(tab.Peca(i, j));
                 }
                 Console.WriteLine();
             }
@@ -61,7 +69,7 @@ namespace Chess_console
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
-            
+
             for (int i = 0; i < tab.Linhas; i++)
             {
                 Console.Write(8 - i + " ");
@@ -91,7 +99,7 @@ namespace Chess_console
             int linha = int.Parse(s[1] + "");
             return new PosicaoXadrez(coluna, linha);
         }
-        
+
         public static void ImprimirPeca(Peca peca)
         {
             if (peca == null)
